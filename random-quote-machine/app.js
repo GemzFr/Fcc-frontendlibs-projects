@@ -85,57 +85,52 @@ const QUOTES = [
   author: "",
   text: ""
 } */
-class App extends React.Component {
-  render() {
-    return(
-      <div id='quote-box'>
-        <Text/>
-        <Author/>
-        <NewQuote/>
-        <Tweet/>
-      </div>
-    )
-  }
+
+let quote = QUOTES[Math.floor(Math.random() * QUOTES.length)]
+
+function App() {
+  return(
+    <div id='quote-box'>
+      <Text/>
+      <Author/>
+      <NewQuote/>
+      <Tweet/>
+    </div>
+  )
 }
 
-class Text extends React.Component {
-  render() {
-    return(
-      <div id='text'>
-
-      </div>
-    )
-  }
-} 
-
-class Author extends React.Component {
-  render() {
-    return(
-      <div id='author'>
-
-      </div>
-    )
-  }
+function Text() {
+  return(
+    <div id='text' className='text-center'>
+      {quote.text}
+    </div>
+  )
 }
 
-class NewQuote extends React.Component {
-  render() {
-    return(
-      <button id='new-quote'>
+function Author() {
+  return(
+    <div id='author' className='text-center'>
+      {quote.author}
+    </div>
+  )
+}
 
+function NewQuote() {
+  return(
+    <div className='d-flex justify-content-center'>
+      <button type='button 'id='new-quote' className='btn btn-outline-info'>
+      Get a quote
       </button>
-    )
-  }
+    </div>
+  )
 }
 
-class Tweet extends React.Component  {
-  render() {
-    return(
-      <a id='tweet-quote'>
+function Tweet() {
+  return(
+    <a id='tweet-quote'>
 
-      </a>
-    )
-  }
+    </a>
+  )
 }
 
 ReactDOM.render(<App />, document.querySelector('#main'))

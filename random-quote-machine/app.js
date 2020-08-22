@@ -86,33 +86,36 @@ const QUOTES = [
   text: ""
 } */
 
-let quote = QUOTES[Math.floor(Math.random() * QUOTES.length)]
-
 function App() {
   return(
     <div id='quote-box'>
-      <Text/>
-      <Author/>
+      <div className='container mb-3 mt-5'>
+        <Quote/>
+        <Tweet/>
+      </div>
       <NewQuote/>
-      <Tweet/>
     </div>
   )
 }
-
-function Text() {
-  return(
-    <div id='text' className='text-center'>
-      {quote.text}
-    </div>
-  )
-}
-
-function Author() {
-  return(
-    <div id='author' className='text-center'>
-      {quote.author}
-    </div>
-  )
+class Quote extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      quote: QUOTES[Math.floor(Math.random() * QUOTES.length)]
+    }
+  }
+  render() {
+    return(
+      <blockquote className='container mb-0' id='quote-container'>
+        <div id='text' className='mx-auto pr-5 pl-5 mb-1 mt-4 text-center font-italic'>
+          {this.state.quote.text}
+        </div>
+        <div id='author' className='mx-auto pr-5 pl-5 text-center pb-4 mt-2'>
+          {this.state.quote.author}
+        </div>
+      </blockquote>
+    )
+  }
 }
 
 function NewQuote() {
@@ -127,10 +130,10 @@ function NewQuote() {
 
 function Tweet() {
   return(
-    <a id='tweet-quote'>
-
-    </a>
+    <div className='d-flex justify-content-center mt-1 pb-1'>
+      <a id='tweet-quote' href='twitter.com/intent/tweet'>Share on Twitter</a>
+    </div>
   )
 }
 
-ReactDOM.render(<App />, document.querySelector('#main'))
+ReactDOM.render(<App/>, document.querySelector('#main'))

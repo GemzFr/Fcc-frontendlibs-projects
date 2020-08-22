@@ -1,0 +1,13 @@
+#quote-container {
+  background: #eee;
+  border: 2px outset #57788B;
+  width: 60%;
+}
+
+blockquote #text::before {
+  content: '\201C';
+}
+
+blockquote #text::after {
+  content: '\201D';
+}

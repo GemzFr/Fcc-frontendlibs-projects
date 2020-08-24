@@ -85,44 +85,50 @@ const QUOTES = [
   author: "",
   text: ""
 } */
-
-function App() {
-  return(
-    <div id='quote-box'>
-      <div className='container mb-3 mt-5'>
-        <Quote/>
-        <Tweet/>
-      </div>
-      <NewQuote/>
-    </div>
-  )
-}
-class Quote extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       quote: QUOTES[Math.floor(Math.random() * QUOTES.length)]
     }
+    this.handleChange = this.handleChange.bind(this)
+  }
+  handleChange() {
+    this.setState({
+      quote: QUOTES[Math.floor(Math.random() * QUOTES.length)]
+    })
   }
   render() {
     return(
-      <blockquote className='container mb-0' id='quote-container'>
-        <div id='text' className='mx-auto pr-5 pl-5 mb-1 mt-4 text-center font-italic'>
-          {this.state.quote.text}
+      <div id='quote-box'>
+        <div className='container mb-3 mt-5'>
+          <Quote quote={this.state.quote}/>
+          <Tweet/>
         </div>
-        <div id='author' className='mx-auto pr-5 pl-5 text-center pb-4 mt-2'>
-          {this.state.quote.author}
-        </div>
-      </blockquote>
+        <NewQuote handleChange={this.handleChange}/>
+      </div>
     )
   }
 }
 
-function NewQuote() {
+function Quote(props){
+  return(
+    <blockquote className='container mb-0' id='quote-container'>
+      <div id='text' className='mx-auto pr-5 pl-5 mb-1 mt-4 text-center font-italic'>
+        {props.quote.text}
+      </div>
+      <div id='author' className='mx-auto pr-5 pl-5 text-center pb-4 mt-2'>
+        {props.quote.author}  
+      </div>
+    </blockquote>
+  )
+}
+
+function NewQuote(props) {
   return(
     <div className='d-flex justify-content-center'>
-      <button type='button 'id='new-quote' className='btn btn-outline-info'>
-      Get a quote
+      <button type='button 'id='new-quote' className='btn btn-outline-info' onClick={props.handleChange}>
+      Get a new quote
       </button>
     </div>
   )

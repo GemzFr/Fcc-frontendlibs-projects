@@ -5,9 +5,9 @@
 }
 
 blockquote #text::before {
-  content: '\201C';
+  content: '\201C'' ';
 }
 
 blockquote #text::after {
-  content: '\201D';
+  content: ' ''\201D';
 }

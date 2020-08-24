@@ -89,13 +89,16 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      quote: QUOTES[Math.floor(Math.random() * QUOTES.length)]
+      quote: this.randomize()
     }
     this.handleChange = this.handleChange.bind(this)
   }
+  randomize() {
+    return QUOTES[Math.floor(Math.random() * QUOTES.length)]
+  }
   handleChange() {
     this.setState({
-      quote: QUOTES[Math.floor(Math.random() * QUOTES.length)]
+      quote: this.randomize()
     })
   }
   render() {
@@ -113,7 +116,7 @@ class App extends React.Component {
 
 function Quote(props){
   return(
-    <blockquote className='container mb-0' id='quote-container'>
+    <blockquote className='container mb-0 shadow p-3 mb-5 bg-white rounded' id='quote-container'>
       <div id='text' className='mx-auto pr-5 pl-5 mb-1 mt-4 text-center font-italic'>
         {props.quote.text}
       </div>
@@ -127,7 +130,7 @@ function Quote(props){
 function NewQuote(props) {
   return(
     <div className='d-flex justify-content-center'>
-      <button type='button 'id='new-quote' className='btn btn-outline-info' onClick={props.handleChange}>
+      <button type='button 'id='new-quote' className='btn btn-info' onClick={props.handleChange}>
       Get a new quote
       </button>
     </div>
@@ -137,7 +140,9 @@ function NewQuote(props) {
 function Tweet() {
   return(
     <div className='d-flex justify-content-center mt-1 pb-1'>
-      <a id='tweet-quote' href='twitter.com/intent/tweet'>Share on Twitter</a>
+      <button type='button' className='btn btn-primary'>
+        <a id='tweet-quote' href='twitter.com/intent/tweet' className='text-white'>Share on Twitter</a>
+      </button>
     </div>
   )
 }

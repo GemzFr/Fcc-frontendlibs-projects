@@ -11,7 +11,7 @@ body, #wrapper {
 
 #wrapper {
   background-image: url('./img/courtney-kenady-tymnoQQIPMA-unsplash.jpg'), url('./img/geronimo-giqueaux-Um1cgDWOUL4-unsplash.jpg'), url('./img/severin-stalder-wfAZnuAEp_Y-unsplash.jpg');
-  background-size: 99%, 99%, 99%;
+  background-size: 100%, 120%, 100%;
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-position: center, top, bottom;
 }

@@ -2,12 +2,13 @@ import React from 'react';
 import Editor from './Editor'
 import Preview from './Preview'
 import './App.css';
+import Placeholder from './Placeholder'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: "Enter your text to be converted here"
+      input: Placeholder
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -15,14 +16,13 @@ class App extends React.Component {
   render() {
     return(
       <div className="App">
-        <div className="container">
-          <div className="row mt-5">
-            <div className="col-md-6">
-              <Editor handleChange={this.handleChange} value={this.state.input}/>
-            </div>
-            <div className="col-md-6">
-              <Preview toDisplay={this.state.input}/>
-            </div>
+        <h1 className="welcome-bar">Markdown previewer project</h1>
+        <div className="wrapper">
+          <div className="cont">
+            <Editor handleChange={this.handleChange} value={this.state.input}/>
+          </div>
+          <div className="cont-prev">
+            <Preview toDisplay={this.state.input}/>
           </div>
         </div>
       </div>

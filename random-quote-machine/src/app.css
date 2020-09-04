@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&display=swap');
+h1 {
+  font-family: 'Barriecito', cursive;
+  font-size: 3.5rem;
+}
+
+body, #wrapper {
+  height: 100vh;
+  background-color: black;
+}
+
+#wrapper {
+  background-image: url('./img/courtney-kenady-tymnoQQIPMA-unsplash.jpg'), url('./img/geronimo-giqueaux-Um1cgDWOUL4-unsplash.jpg'), url('./img/severin-stalder-wfAZnuAEp_Y-unsplash.jpg');
+  background-size: 100%, 120%, 100%;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: center, top, bottom;
+}
+
+#quote-container {
+  background: rgb(255,250,240);
+  border: 2px outset #57788B;
+  width: 60%;
+}
+
+blockquote #text::before {
+  content: '\201C'' ';
+}
+
+blockquote #text::after {
+  content: ' ''\201D';
+}
+
+#button-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  #wrapper {
+  background-image: url('./img/tim-mossholder-eivYBKv3MAs-unsplash.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  }
+}
+
+@media (min-width: 992px) {
+  #button-box {
+    flex-direction: row;
+    justify-content: center;
+  }
+  #wrapper {
+  background-image: url('./img/flavio-gasperini-QO0hJHVUVso-unsplash.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  }
+
+}

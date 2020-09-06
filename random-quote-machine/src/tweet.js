@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Tweet() {
+const Tweet = () => {
   return(
     <div>
       <a id='tweet-quote' href='twitter.com/intent/tweet' target='_blank' className='text-white'>
@@ -11,3 +11,5 @@ export default function Tweet() {
     </div>
   )
 }
+
+export default Tweet

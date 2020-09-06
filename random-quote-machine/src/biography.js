@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 
-export default function Biography(props) {
+const Biography = (props) => {
   let firstName = props.quote.author.split(' ')
   return(
-    <React.Fragment>
+    <Fragment>
     <div>
       <a id='biography' href={props.quote.wiki} target='_blank' rel='noopener noreferrer' className='text-white'>
         <button type='button' className='btn btn-light p-2 m-2'>
@@ -18,6 +18,8 @@ export default function Biography(props) {
       </button>
     </a>
   </div>
-  </React.Fragment>
+  </Fragment>
   ) 
 }
+
+export default Biography

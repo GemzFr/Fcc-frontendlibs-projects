@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Quote(props){
+const Quote = (props) => {
   return(
     <blockquote id='quote-container' className='container pt-3 pb-3'>
       <div id='text' className='text-center font-italic'>
@@ -12,3 +12,5 @@ export default function Quote(props){
     </blockquote>
   )
 }
+
+export default Quote

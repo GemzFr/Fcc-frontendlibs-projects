@@ -1,13 +1,12 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import Placeholder from './Placeholder'
 
-function Editor(props) {
-  
+const Editor = (props) => {
   return(
-   <React.Fragment>
+   <Fragment>
       <h1 className="title">Input</h1>
       <textarea id="editor" defaultValue={Placeholder} onChange={props.handleChange}></textarea>
-   </React.Fragment>
+   </Fragment>
   )
 }
 

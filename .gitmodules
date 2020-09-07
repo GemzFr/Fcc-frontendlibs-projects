@@ -1,0 +1,3 @@
+[submodule "drum-machine/fcc-frontendlibs-projects"]
+	path = drum-machine/fcc-frontendlibs-projects
+	url = https://github.com/GemzFr/fcc-frontendlibs-projects/

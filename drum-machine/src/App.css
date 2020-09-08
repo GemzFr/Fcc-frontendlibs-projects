@@ -1,4 +1,29 @@
+:root {
+  --shadow-color: #55537a 
+}
 body {
   margin: 0;
   padding: 0;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.drum-pad {
+  height: 150px;
+  -webkit-box-shadow: 3px 0px 5px 0px var(--shadow-color); 
+  box-shadow: 3px 0px 5px 0px var(--shadow-color);
+}
+
+button {
+  background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+}
+
+.description {
+  -webkit-box-shadow: 3px 3px 5px 0px var(--shadow-color); 
+  box-shadow: 3px 3px 5px 0px var(--shadow-color);
 }

@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import Display from './Display'
+import sounds from './sounds'
 
 const DrumMachine = () => {
   return (
-    <div id='drum-machine' className='text-center container'>
+    <main id='drum-machine' className='text-center container d-flex justify-content-center'>
       <Display/>
-    </div>
+    </main>
   );
 }
 

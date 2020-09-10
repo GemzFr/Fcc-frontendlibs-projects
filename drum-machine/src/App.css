@@ -12,18 +12,26 @@ body {
   align-items: center;
   height: 100vh;
 }
-
-.drum-pad {
-  height: 150px;
-  -webkit-box-shadow: 3px 0px 5px 0px var(--shadow-color); 
-  box-shadow: 3px 0px 5px 0px var(--shadow-color);
+#display {
+  width: 400px;
 }
 
-button {
+.drum-pad {
+  width: 100px;
+  height: 50px;
+  -webkit-box-shadow: 3px 0px 5px 0px var(--shadow-color); 
+  box-shadow: 3px 0px 5px 0px var(--shadow-color);
   background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+  color: white;
+}
+
+.drum-pad:hover {
+  cursor: pointer;
 }
 
 .description {
-  -webkit-box-shadow: 3px 3px 5px 0px var(--shadow-color); 
-  box-shadow: 3px 3px 5px 0px var(--shadow-color);
+  width: 100px;
+  height: 50px;
+  -webkit-box-shadow: 3px 0px 5px 0px var(--shadow-color); 
+  box-shadow: 3px 0px 5px 0px var(--shadow-color);
 }

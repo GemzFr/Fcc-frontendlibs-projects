@@ -4,7 +4,7 @@ import DrumPad from './DrumPad'
 const Display = () => {
   return(
     <div id='display' className='d-flex flex-wrap'>
-      <DrumPad/>
+      <DrumPad />   
     </div>
   )
 }

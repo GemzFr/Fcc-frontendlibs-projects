@@ -1,10 +1,9 @@
 import React from 'react'
-import DrumPad from './DrumPad'
 
-const Display = () => {
+const Display = (props) => {
   return(
     <div id='display' className='d-flex flex-wrap'>
-      <DrumPad />   
+      <h3>{props.infoText}</h3>  
     </div>
   )
 }

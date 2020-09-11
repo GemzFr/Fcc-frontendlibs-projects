@@ -7,6 +7,7 @@ const DrumMachine = () => {
   const [message, setMessage] = useState('Click the pads or press the corresponding key!')
 
   const handleKeyDown = (e) => {
+    e.preventDefault();
     const audio = document.getElementById(String.fromCharCode(e.keyCode));
     if (audio) {
       setMessage('Hit that ' + audio.closest('div').id + '!');
@@ -15,6 +16,14 @@ const DrumMachine = () => {
     }
   }
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    const audio = e.target.closest('div').firstChild;
+    setMessage('Hit that ' + audio.closest('div').id + '!')
+    audio.currentTime = 0;
+    audio.play();
+  }
+ 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => {
@@ -24,8 +33,8 @@ const DrumMachine = () => {
 
   return (
     <main id='drum-machine' className='text-center container d-flex justify-content-center'>
-      <Display infoText={message}/>
-      <DrumPad/>
+      <Display message={message}/>
+      <DrumPad handleClick={handleClick} message={message}/>
     </main>
   );
 }

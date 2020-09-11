@@ -1,18 +1,13 @@
 import React from 'react'
 import sounds from './sounds'
 
-const DrumPad = () => {
-  const handleClick = (e) => {
-    e.preventDefault();
-    const audio = e.target.closest('div').firstChild;
-    audio.currentTime = 0;
-    audio.play();
-  }
+const DrumPad = (props) => {
 
   return( 
     sounds.map((sound) =>
       <div key={sound.id} className='wrapper m-1'>
-        <div id={sound.id} className='drum-pad border border-dark rounded d-flex flex-column justify-content-center' onClick={handleClick}>
+        <div id={sound.id} className='drum-pad border border-dark rounded d-flex flex-column justify-content-center'
+        onClick={props.handleClick}>
           <audio id={sound.keyTrigger} src={sound.url} className='clip'></audio>
           {sound.keyTrigger}
         </div>

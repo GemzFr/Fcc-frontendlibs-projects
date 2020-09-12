@@ -7,7 +7,6 @@ const DrumMachine = () => {
   const [message, setMessage] = useState('Click the pads or press the corresponding key!')
 
   const handleKeyDown = (e) => {
-    e.preventDefault();
     const audio = document.getElementById(String.fromCharCode(e.keyCode));
     if (audio) {
       setMessage('Hit that ' + audio.closest('div').id + '!');
@@ -32,7 +31,7 @@ const DrumMachine = () => {
   })
 
   return (
-    <main id='drum-machine' className='text-center container d-flex justify-content-center'>
+    <main id='drum-machine' className='text-center container d-flex justify-content-center flex-wrap '>
       <Display message={message}/>
       <DrumPad handleClick={handleClick} message={message}/>
     </main>

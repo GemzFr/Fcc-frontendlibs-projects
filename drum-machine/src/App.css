@@ -1,19 +1,35 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 :root {
   --shadow-color: #55537a 
 }
+
 body {
   margin: 0;
   padding: 0;
+  background-color: black;
+  border: 5px inset rgb(109, 107, 74);
 }
 
 #root {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
+
+main {
+  background-image: url('https://cdn.pixabay.com/photo/2016/10/30/19/47/drum-kit-1784134_960_720.jpg');
+  background-origin: border-box;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 #display {
-  width: 400px;
+  background-image: linear-gradient(135deg, #c9823b9d 0%, #bea72394 100%);
+  border-radius: 50px 50px 50px 50px;
+  border: 3px groove rgb(99, 84, 84);
+  color: white;
+  text-shadow: 1px 1px 2px #000;
 }
 
 .drum-pad {
@@ -21,12 +37,21 @@ body {
   height: 50px;
   -webkit-box-shadow: 3px 0px 5px 0px var(--shadow-color); 
   box-shadow: 3px 0px 5px 0px var(--shadow-color);
-  background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+  background-image: linear-gradient(120deg, #f6d465ec 0%, #fd9f85ef 100%);
+  font-weight: bolder;
+  font-size: 18px;
   color: white;
+  text-shadow: 1px 1px 2px #000;
 }
 
 .drum-pad:hover {
   cursor: pointer;
+}
+
+h3 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 17px;
+  margin: 0;
 }
 
 .description {
@@ -34,4 +59,9 @@ body {
   height: 50px;
   -webkit-box-shadow: 3px 0px 5px 0px var(--shadow-color); 
   box-shadow: 3px 0px 5px 0px var(--shadow-color);
+  background-color: rgba(230, 229, 220, 0.822);
+  font-family:  'Press Start 2P', cursive;
+  color: white;
+  text-shadow: 1px 1px 2px rgb(216, 70, 33);
 }
+

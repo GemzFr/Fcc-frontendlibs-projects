@@ -8,7 +8,7 @@ const sounds = [
   {
     keyCode: 87,
     keyTrigger: 'W',
-    id: 'high hats',
+    id: 'hi hats',
     url: 'https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/Hats/27[kb]909-bright-ohh.aif.mp3'
   },
   {

@@ -8,13 +8,14 @@ body {
   margin: 0;
   padding: 0;
   background-color: black;
-  border: 5px inset rgb(109, 107, 74);
+  border: 8px inset rgb(109, 107, 74);
 }
 
 #root {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  height: 98.2vh;
 }
 
 main {
@@ -22,6 +23,7 @@ main {
   background-origin: border-box;
   background-position: center;
   background-repeat: no-repeat;
+  max-width: 400px;
 }
 
 #display {
@@ -65,3 +67,14 @@ h3 {
   text-shadow: 1px 1px 2px rgb(216, 70, 33);
 }
 
+@media (min-width: 576px) {
+  body {
+    background-image: url('https://cdn.pixabay.com/photo/2016/10/30/19/47/drum-kit-1784134_960_720.jpg');
+    background-origin: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  main {
+    background-image: none;
+  }
+}

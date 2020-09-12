@@ -31,7 +31,7 @@ const DrumMachine = () => {
   })
 
   return (
-    <main id='drum-machine' className='text-center container d-flex justify-content-center flex-wrap '>
+    <main id='drum-machine' className='text-center d-flex justify-content-center flex-wrap '>
       <Display message={message}/>
       <DrumPad handleClick={handleClick} message={message}/>
     </main>

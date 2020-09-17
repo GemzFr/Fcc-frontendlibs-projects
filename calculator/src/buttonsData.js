@@ -1,72 +1,21 @@
 const buttonsData = [
-  {
-    id: "clear",
-    value: "Reset"
-  },
-  {
-    id: "multiply",
-    value: "*"
-  },
-  {
-    id: "divide",
-    value: "/"
-  },
-  {
-    id: "nine",
-    value: "9"
-  },
-  {
-    id: "eight",
-    value: "8"
-  },
-  {
-    id: "seven",
-    value: "7"
-  },
-  {
-    id: "subtract",
-    value: "-"
-  },
-  {
-    id: "six",
-    value: "6"
-  },
-  {
-    id: "five",
-    value: "5"
-  },
-  {
-    id: "four",
-    value: "4"
-  },
-  {
-    id: "add",
-    value: "+"
-  },
-  {
-    id: "three",
-    value: "3"
-  },
-  {
-    id: "two",
-    value: "2"
-  },
-  {
-    id: "one",
-    value: "1"
-  },
-  {
-    id: "decimal",
-    value: "."
-  },
-  {
-    id: "zero",
-    value: "0"
-  },
-  {
-    id: "equals",
-    value: "="
-  },
+  { id: "clear", value: "Reset", oftype: "clear"},
+  { id: "multiply", value: "*", oftype: "operator"},
+  { id: "divide", value: "/", oftype: "operator"},
+  { id: "nine", value: "9", oftype: "number"},
+  { id: "eight", value: "8", oftype: "number"},
+  { id: "seven", value: "7", oftype: "number"},
+  { id: "subtract", value: "-", oftype: "operator"},
+  { id: "six", value: "6", oftype: "number"},
+  { id: "five", value: "5", oftype: "number"},
+  { id: "four", value: "4", oftype: "number"},
+  { id: "add", value: "+", oftype: "operator"},
+  { id: "three", value: "3", oftype: "number"},
+  { id: "two", value: "2", oftype: "number"},
+  { id: "one", value: "1", oftype: "number"},
+  { id: "equals", value: "=", oftype: "equals"},
+  { id: "zero", value: "0", oftype: "number"},
+  { id: "decimal", value: ".", oftype: "decimal"},
 ]
 
 export default buttonsData

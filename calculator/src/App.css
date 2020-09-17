@@ -19,16 +19,22 @@ body {
 .display-wrapper {
   margin-top: 3px;
   padding: 0;
+  position: relative;
 }
 
 .formula, .display {
   background-color: beige;
   width: 314px;
   height: 30.75px;
+  text-align: right;
+  font-size: 16px;
+  margin-left: 3px;
 }
 
 .display {
   margin-bottom: 1.5px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .button {
@@ -40,15 +46,26 @@ body {
   padding: 0;
 }
 
-#clear, #zero, #equals {
+#clear, #zero  {
   width: 155.5px;
 }
 
 #clear {
   background-color: rgb(156, 6, 6);
+  margin-left: 3px;
 }
 
 #equals {
   background-color: rgb(40, 66, 146);
+  height: 126px;
+  position: absolute;
+  right: 1.5px;
+  bottom: 0.1px;
 }
+
+#three, #six, #nine, #zero {
+  margin-left: 3px;
+}
+
+
 

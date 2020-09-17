@@ -1,5 +1,5 @@
 import React from 'react';
-import DisplayBox from './DisplayBox'
+import Calculator from './Calculator'
 import './App.css';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
         <h2>Enter your formula:</h2>
       </header>
       <main className="calculator container">
-        <DisplayBox/>
+        <Calculator/>
       </main>
     </div>
   );

@@ -51,8 +51,6 @@ const DisplayBox = ({initialResult = "0", initialFormula = ""}) => {
 
       case "equals":
         const toResult = eval(formula.replace(/[^0-9+\-*/.]/g, '')).toString()
-        console.log(typeof toResult)
-        console.log(toResult)
         setFormula(formula => formula + (value + toResult));
         setResult(toResult);
         break;

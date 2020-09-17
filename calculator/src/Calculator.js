@@ -10,7 +10,7 @@ const DisplayBox = ({initialResult = "0", initialFormula = ""}) => {
     const oftype = e.target.dataset.oftype;
     const operators = /[/*+-]/;
     const decimalCheck = /(-?\d+\.\d*)$/;
-    const lastChar = formula.charAt((formula.length - 1));
+    const lastChar = formula.charAt((formula.length - 1)); 
     e.preventDefault();
 
     switch (oftype) {
@@ -33,7 +33,12 @@ const DisplayBox = ({initialResult = "0", initialFormula = ""}) => {
         break;
 
       case "operator":
-        if (lastChar.match(operators)) { 
+        if (lastChar.match(operators)) {
+          if (value === "-" && lastChar !== "-") {
+            setFormula(formula => formula + value);
+            setResult(value);
+            break;
+          } 
           const expression = formula.slice(0,-1);
           setFormula(expression + value);
           setResult(value);
@@ -42,6 +47,14 @@ const DisplayBox = ({initialResult = "0", initialFormula = ""}) => {
           setFormula(formula => formula + value);
           setResult(value);
         }
+        break;
+
+      case "equals":
+        const toResult = eval(formula.replace(/[^0-9+\-*/.]/g, '')).toString()
+        console.log(typeof toResult)
+        console.log(toResult)
+        setFormula(formula => formula + (value + toResult));
+        setResult(toResult);
         break;
 
       default:

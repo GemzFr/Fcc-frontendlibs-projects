@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+  height: 100vh;
+}
+
+.calculator {
+  width: 320px;
+  height: 390px;
+  background-color: grey;
+  padding: 0;
+}
+
+.display-wrapper {
+  margin-top: 3px;
+  padding: 0;
+  position: relative;
+}
+
+.formula, .display {
+  background-color: beige;
+  width: 314px;
+  height: 30.75px;
+  text-align: right;
+  font-size: 16px;
+  margin-left: 3px;
+}
+
+.display {
+  margin-bottom: 1.5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.button {
+  background-color: rgb(50, 60, 80);
+  color: white;
+  width: 76.25px;
+  height: 61.5px;
+  margin: 1.5px;
+  padding: 0;
+}
+
+#clear, #zero  {
+  width: 155.5px;
+}
+
+#clear {
+  background-color: rgb(156, 6, 6);
+  margin-left: 3px;
+}
+
+#equals {
+  background-color: rgb(40, 66, 146);
+  height: 126px;
+  position: absolute;
+  right: 1.5px;
+  bottom: 0.1px;
+}
+
+#three, #six, #nine, #zero {
+  margin-left: 3px;
+}
+
+
+

@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import Button from './Button'
 
-const DisplayBox = ({initialResult = "0", initialFormula = ""}) => {
+const DisplayBox = ({initialResult = "0", initialFormula = "", initialCalculated = false}) => {
   const [formula, setFormula] = useState(initialFormula);
   const [result, setResult] = useState(initialResult);
+  const [calculated, setCalculated] = useState(initialCalculated);
 
   const handleClick = (e) => {
     const value = e.target.value;
@@ -13,8 +14,25 @@ const DisplayBox = ({initialResult = "0", initialFormula = ""}) => {
     const lastChar = formula.charAt((formula.length - 1)); 
     e.preventDefault();
 
+    /* if (calculated) {
+      setCalculated(false)
+      if (oftype === "number") {
+        setFormula(value);
+        setResult(value)
+      } else if (oftype === "operator") {
+        setFormula(formula => formula + value);
+        setResult(value)
+      }
+    } */
+
     switch (oftype) {
       case "number": 
+        if (calculated) {
+          setFormula(value);
+          setResult(value);
+          setCalculated(false);
+          break;
+        }
         setFormula(formula => formula + value);
         (result !== "0" && !lastChar.match(operators))? setResult(result => result + value) : setResult(value)
         break;
@@ -22,9 +40,15 @@ const DisplayBox = ({initialResult = "0", initialFormula = ""}) => {
       case "clear": 
         setFormula(initialFormula);
         setResult(initialResult);
+        setCalculated(initialCalculated);
         break;
 
-      case "decimal": 
+      case "decimal":
+        if (calculated) {
+          setFormula("0.");
+          setResult("0.");
+          setCalculated(false);
+        } 
         if (formula.match(decimalCheck)) break;
         else {
           setFormula(formula => formula + value);
@@ -33,6 +57,12 @@ const DisplayBox = ({initialResult = "0", initialFormula = ""}) => {
         break;
 
       case "operator":
+        if (calculated) {
+          setFormula((result + value));
+          setResult(value);
+          setCalculated(false);
+          break;
+        } 
         if (lastChar.match(operators)) {
           if (value === "-" && lastChar !== "-") { 
             setFormula(formula => formula + value);
@@ -58,6 +88,7 @@ const DisplayBox = ({initialResult = "0", initialFormula = ""}) => {
         const toResult = eval(formula.replace(/[^0-9+\-*/.]/g, '')).toString()
         setFormula(formula => formula + (value + toResult));
         setResult(toResult);
+        setCalculated(true);
         break;
 
       default:

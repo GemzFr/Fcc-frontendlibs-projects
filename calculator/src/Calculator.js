@@ -14,17 +14,6 @@ const DisplayBox = ({initialResult = "0", initialFormula = "", initialCalculated
     const lastChar = formula.charAt((formula.length - 1)); 
     e.preventDefault();
 
-    /* if (calculated) {
-      setCalculated(false)
-      if (oftype === "number") {
-        setFormula(value);
-        setResult(value)
-      } else if (oftype === "operator") {
-        setFormula(formula => formula + value);
-        setResult(value)
-      }
-    } */
-
     switch (oftype) {
       case "number": 
         if (calculated) {
@@ -34,7 +23,7 @@ const DisplayBox = ({initialResult = "0", initialFormula = "", initialCalculated
           break;
         }
         setFormula(formula => formula + value);
-        (result !== "0" && !lastChar.match(operators))? setResult(result => result + value) : setResult(value)
+        (result !== "0" && !lastChar.match(operators))? setResult(result => result + value) : setResult(value);
         break;
 
       case "clear": 
@@ -94,13 +83,11 @@ const DisplayBox = ({initialResult = "0", initialFormula = "", initialCalculated
       default:
         break;
     } 
-
   }
-
   return(
     <div className="display-wrapper container d-flex flex-row flex-wrap align-items-center justify-content-start">
-      <div className="formula">{formula}</div>
-      <div id="display" className="display">{result}</div>
+      <div className="formula"><span>{formula}</span></div>
+      <div id="display" className="display"><span>{result}</span></div>
       <Button handleClick={handleClick}/>
     </div>
   )

@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Share Tech Mono', monospace;
 }
 
 .App {
@@ -11,9 +13,10 @@ body {
 
 .calculator {
   width: 320px;
-  height: 390px;
-  background-color: grey;
+  height: 394px;
+  background-color: #423a4b;
   padding: 0;
+  box-shadow: 0px 0px 2px 2px black;
 }
 
 .display-wrapper {
@@ -23,27 +26,35 @@ body {
 }
 
 .formula, .display {
-  background-color: beige;
+  background-color: black;
+  color: #E2D432;
   width: 314px;
   height: 30.75px;
   text-align: right;
-  font-size: 16px;
+  font-size: 20px;
   margin-left: 3px;
+  padding-right: 5px;
 }
 
 .display {
   margin-bottom: 1.5px;
-  font-size: 18px;
+  padding-bottom: 35px;
+  font-size: 25px;
   font-weight: bold;
-}
+  }
 
 .button {
-  background-color: rgb(50, 60, 80);
+  background-color: #9da6c2;
   color: white;
   width: 76.25px;
   height: 61.5px;
   margin: 1.5px;
   padding: 0;
+  font-size: 18px;
+}
+
+.button:hover {
+  border: 1px solid black;
 }
 
 #clear, #zero  {
@@ -51,12 +62,12 @@ body {
 }
 
 #clear {
-  background-color: rgb(156, 6, 6);
+  background-color: #F54F4A;
   margin-left: 3px;
 }
 
 #equals {
-  background-color: rgb(40, 66, 146);
+  background-color: #78A6F5;
   height: 126px;
   position: absolute;
   right: 1.5px;

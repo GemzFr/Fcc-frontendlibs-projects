@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App container d-flex flex-column align-items-center justify-content-center">
       <header>
-        <h2>Enter your formula:</h2>
+        <h3>Enter your formula:</h3>
       </header>
       <main className="calculator container">
         <Calculator/>

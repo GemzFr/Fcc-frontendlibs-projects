@@ -34,11 +34,16 @@ const DisplayBox = ({initialResult = "0", initialFormula = ""}) => {
 
       case "operator":
         if (lastChar.match(operators)) {
-          if (value === "-" && lastChar !== "-") {
+          if (value === "-" && lastChar !== "-") { 
             setFormula(formula => formula + value);
             setResult(value);
             break;
-          } 
+          } else if (value !== "-" && lastChar === "-") {
+            const expression = formula.slice(0,-2);
+            setFormula(expression + value);
+            setResult(value);
+            break;
+          }
           const expression = formula.slice(0,-1);
           setFormula(expression + value);
           setResult(value);

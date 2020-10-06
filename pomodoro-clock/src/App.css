@@ -1,5 +1,64 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Timmana&display=swap');
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background: black
+}
+
+.App {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 90vw;
+  height: 96.5vh;
+  background-image: linear-gradient(to top, #e14fad 0%, #f9d423 100%);
+  margin: 0.8rem auto;
+  padding: 1rem 1rem 1.6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items : center;
+  justify-content: space-evenly;
+}
+
+.timer-container, .label-container {
+  background: #7e0e1d6b;
+  display: flex;
+  text-align: center;
+  font-size: 1.8em;
+  font-family: 'Timmana', sans-serif;
+  color: #FFFEF7;
+  border-radius: 5px;
+  border: 3px outset #fffbe5;
+}
+
+.timer-container{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 40%;
+}
+
+.label-container {
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  height: 30%;
+}
+
+button {
+  background: #ffcffb;
+  color: #FFFEF7;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 3px outset #fffbe5;
+  cursor: pointer;
 }

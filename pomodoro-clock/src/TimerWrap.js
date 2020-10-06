@@ -1,10 +1,20 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 const TimerWrap = (props) => {
+  const [minutes, setMinutes] = useState(25);
+  const [seconds, setSeconds] = useState(0)
+  const [timerState, setTimerState] = useState(false);
+
   return(
     <section className='timer-container' id='timer-label'>
-      <label>{props.labelType}</label>
-      <p id='time-left'>{props.timerType}</p>
+      <label>{props.labelType.charAt(0).toUpperCase() + props.labelType.slice(1)}</label>
+      <p id='time-left'>
+        {!timerState ? 
+          props.time < 10 ? `0${props.time}` : `${props.time}`
+          : timerState ?
+          `0${minutes}` : `${minutes}`}
+        :{seconds < 10 ? `0${seconds}` : `${seconds}`}
+      </p>
       <div className='btn-wrap'>
       <button type='button' id='start_stop'>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"><path d="M9.5 15.584V8.416a.5.5 0 01.77-.42l5.576 3.583a.5.5 0 010 .842l-5.576 3.584a.5.5 0 01-.77-.42z"></path><path fillRule="evenodd" d="M12 2.5a9.5 9.5 0 100 19 9.5 9.5 0 000-19zM1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12z"></path></svg>

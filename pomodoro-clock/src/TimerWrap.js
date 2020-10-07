@@ -3,6 +3,24 @@ import React, {useEffect, useState} from 'react'
 const TimerWrap = (props) => {
   const [seconds, setSeconds] = useState(0)
   const [timerState, setTimerState] = useState(true);
+  const [pause, setPause] = useState(true)
+
+  const handleClick = () => {
+    setPause(!pause)
+  }
+  
+  useEffect(() => {
+    if (!pause) {
+      const timer = setInterval(() => {
+       if (seconds === 0) {
+         setSeconds(59);
+       } else {
+         setSeconds(s => s - 1)
+       } 
+      }, 1000);
+      return () => clearInterval(timer);
+    }
+  }, [pause, seconds]);
 
   return(
     <section className='timer-container' id='timer-label'>
@@ -15,10 +33,10 @@ const TimerWrap = (props) => {
             : props.sessionTime < 10 ? 
               `0${props.sessionTime}` : `${props.sessionTime}` 
         }:
-        {seconds < 10 ? `0${seconds}` : `0${seconds}`}
+        {seconds < 10 ? `0${seconds}` : `${seconds}`}
       </p>
       <div className='btn-wrap'>
-      <button type='button' id='start_stop'>
+      <button type='button' id='start_stop' onClick={handleClick}>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"><path d="M9.5 15.584V8.416a.5.5 0 01.77-.42l5.576 3.583a.5.5 0 010 .842l-5.576 3.584a.5.5 0 01-.77-.42z"></path><path fillRule="evenodd" d="M12 2.5a9.5 9.5 0 100 19 9.5 9.5 0 000-19zM1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12z"></path></svg>
       </button>
       <span> </span>

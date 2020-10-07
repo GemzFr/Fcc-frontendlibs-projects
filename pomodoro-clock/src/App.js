@@ -31,7 +31,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <TimerWrap labelType='timer' time={sessionTime}/>
+      <TimerWrap labelType='timer' sessionTime={sessionTime} breakTime={breakTime}/>
       <div className='label-container'>
         <TypeWrap labelType='session' timerType={sessionTime} handleClick={handleClick}/>
         <TypeWrap labelType='break' timerType={breakTime} handleClick={handleClick}/>

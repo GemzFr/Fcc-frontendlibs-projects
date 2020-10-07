@@ -1,19 +1,21 @@
 import React, {useEffect, useState} from 'react'
 
 const TimerWrap = (props) => {
-  const [minutes, setMinutes] = useState(25);
   const [seconds, setSeconds] = useState(0)
-  const [timerState, setTimerState] = useState(false);
+  const [timerState, setTimerState] = useState(true);
 
   return(
     <section className='timer-container' id='timer-label'>
       <label>{props.labelType.charAt(0).toUpperCase() + props.labelType.slice(1)}</label>
       <p id='time-left'>
-        {!timerState ? 
-          props.time < 10 ? `0${props.time}` : `${props.time}`
-          : timerState ?
-          `0${minutes}` : `${minutes}`}
-        :{seconds < 10 ? `0${seconds}` : `${seconds}`}
+        {
+          !timerState ?  
+            props.breakTime < 10 ? 
+              `0${props.breakTime}` : `${props.breakTime}`
+            : props.sessionTime < 10 ? 
+              `0${props.sessionTime}` : `${props.sessionTime}` 
+        }:
+        {seconds < 10 ? `0${seconds}` : `0${seconds}`}
       </p>
       <div className='btn-wrap'>
       <button type='button' id='start_stop'>

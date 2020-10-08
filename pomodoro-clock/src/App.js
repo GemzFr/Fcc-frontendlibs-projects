@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect} from 'react'
 import TypeWrap from './TypeWrap'
 import TimerWrap from './TimerWrap'
 import './App.css'
@@ -15,6 +15,7 @@ const App = () => {
 
   const handleCountDownClick = () => {
     setPause(!pause);
+    console.log(pause)
     setIsCountdown(true);
   }
 
@@ -45,7 +46,7 @@ const App = () => {
         if (sessionTime === 0 && seconds === 0) {
           return setIsBreak(true)
         }
-        if (seconds === 0) {
+        if (seconds === 0 && !isBreak) {
           setSeconds(59);
           setSessionTime(m => m - 1);
         } else {
@@ -54,14 +55,14 @@ const App = () => {
       }, 1000);
       return () => clearInterval(timer);
     }
-  }, [pause, seconds, sessionTime]);
+  }, [pause, seconds, sessionTime, isBreak]);
 
   useEffect(() => {
     if (isBreak) {
       const timer = setInterval(() => {
         if (breakTime === 0 && seconds === 0) {
           setIsBreak(false);
-          setSessionTime(storeSession);
+          return setSessionTime(storeSession);
         } 
         if (seconds === 0) {
           setSeconds(59);
@@ -72,7 +73,7 @@ const App = () => {
       }, 1000);
       return () => clearInterval(timer)
     }
-  }, [isBreak, seconds, breakTime])
+  }, [isBreak, seconds, breakTime, storeSession])
 
   const handleControlClick = (e) => {
     const target = e.target.closest('button').id;

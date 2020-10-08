@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import TypeWrap from './TypeWrap'
 import TimerWrap from './TimerWrap'
 import './App.css'
@@ -19,6 +19,7 @@ const App = () => {
   }
 
   const handleReset = () => {
+    const audio = document.querySelector('#beep')
     setBreakTime(5);
     setStoreBreak(5);
     setSessionTime(25);
@@ -27,7 +28,16 @@ const App = () => {
     setPause(true);
     setIsBreak(false);
     setIsCountdown(false);
+    audio.pause();
+    audio.currentTime = 0;
   }
+
+  useEffect(() => {
+    const audio = document.querySelector('#beep')
+    if ((breakTime === 0 && seconds === 0) || (sessionTime === 0 && seconds === 0)) {
+      audio.play();
+    }
+  }, [breakTime, sessionTime, seconds])
   
   useEffect(() => {
     if (!pause) {
@@ -104,6 +114,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <audio id='beep' preload='auto' src='https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav'></audio>
       <TimerWrap 
         sessionTime={sessionTime} 
         breakTime={breakTime}

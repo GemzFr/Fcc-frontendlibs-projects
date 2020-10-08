@@ -122,18 +122,15 @@ const App = () => {
         handleReset={handleReset}
         seconds={seconds}
         isCountdown={isCountdown}
-        isBreak={isBreak}
-        />
-      <div className='label-container'>
-        <TypeWrap 
-          labelType='session' 
-          timerType={storeSession} 
-          handleClick={handleControlClick}/>
-        <TypeWrap 
-          labelType='break' 
-          timerType={storeBreak} 
-          handleClick={handleControlClick}/>
-      </div>
+        isBreak={isBreak}/>
+      <TypeWrap 
+        labelType='session' 
+        timerType={storeSession} 
+        handleClick={handleControlClick}/>
+      <TypeWrap 
+        labelType='break' 
+        timerType={storeBreak} 
+        handleClick={handleControlClick}/>
     </div>
   );
 }

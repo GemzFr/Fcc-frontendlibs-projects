@@ -2,7 +2,7 @@ import React from 'react'
 
 const TimerWrap = (props) => {
   return(
-    <section className='timer-container' id='timer-label'>
+    <section className='timer-container container' id='timer-label'>
       <label>{!props.isBreak ? 'Session time' : 'Break time'}</label>
       <p id='time-left'>
         {

@@ -2,7 +2,7 @@ import React from 'react'
 
 const TypeWrap = (props) => {
   return(
-    <section id={`${props.labelType}-label`} className='wrapper'>
+    <section id={`${props.labelType}-label`} className={`${props.labelType}-container container`}>
       <label>{props.labelType.charAt(0).toUpperCase() + props.labelType.slice(1)}</label>
       <p id={`${props.labelType}-length`}>{props.timerType}</p>      
       <button type='button' id={`${props.labelType}-increment`} onClick={props.handleClick}>

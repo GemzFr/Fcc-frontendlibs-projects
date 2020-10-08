@@ -3,7 +3,7 @@ import React from 'react'
 const TimerWrap = (props) => {
   return(
     <section className='timer-container' id='timer-label'>
-      <label>{props.labelType.charAt(0).toUpperCase() + props.labelType.slice(1)}</label>
+      <label>{!props.isBreak ? 'Session time' : 'Break time'}</label>
       <p id='time-left'>
         {
           !props.isBreak? 

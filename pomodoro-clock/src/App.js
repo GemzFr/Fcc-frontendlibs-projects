@@ -5,7 +5,7 @@ import './App.css'
 
 const App = () => {
   const [breakTime, setBreakTime] = useState(5);
-  const [storeBreak, setStoreBreak] = useState(0);
+  const [storeBreak, setStoreBreak] = useState(5);
   const [sessionTime, setSessionTime] = useState(25);
   const [storeSession, setStoreSession] = useState(25);
   const [seconds, setSeconds] = useState(0)
@@ -20,7 +20,9 @@ const App = () => {
 
   const handleReset = () => {
     setBreakTime(5);
+    setStoreBreak(5);
     setSessionTime(25);
+    setStoreSession(25);
     setSeconds(0);
     setPause(true);
     setIsBreak(false);
@@ -49,6 +51,7 @@ const App = () => {
       const timer = setInterval(() => {
         if (breakTime === 0 && seconds === 0) {
           setIsBreak(false);
+          setSessionTime(storeSession);
         } 
         if (seconds === 0) {
           setSeconds(59);
@@ -67,16 +70,32 @@ const App = () => {
 
     switch (target) {
       case 'break-increment':
-        if (breakTime < 60) setBreakTime(c => c + 1);
+        if (breakTime < 60) {
+          setSeconds(0);
+          setBreakTime(storeBreak + 1);
+          setStoreBreak(c => c + 1);
+        }
         break;
       case 'break-decrement':
-        if (breakTime > 1) setBreakTime(c => c - 1);
+        if (breakTime > 1) {
+          setSeconds(0);
+          setBreakTime(storeBreak - 1);
+          setStoreBreak(c => c - 1);
+        }
         break;
       case 'session-increment':
-        if (sessionTime < 60) setSessionTime(c => c + 1);
+        if (sessionTime < 60) {
+          setSeconds(0);
+          setSessionTime(storeSession + 1);
+          setStoreSession(c => c + 1);
+        } 
         break;
       case 'session-decrement':
-        if (sessionTime > 1) setSessionTime(c => c - 1);
+        if (sessionTime > 1) {
+          setSeconds(0);
+          setSessionTime(storeSession - 1);
+          setStoreSession(c => c - 1);
+        }
         break;
       default:
         console.log('Unknown error')
@@ -86,7 +105,6 @@ const App = () => {
   return (
     <div className="App">
       <TimerWrap 
-        labelType='timer' 
         sessionTime={sessionTime} 
         breakTime={breakTime}
         handleClick={handleCountDownClick}
@@ -96,8 +114,14 @@ const App = () => {
         isBreak={isBreak}
         />
       <div className='label-container'>
-        <TypeWrap labelType='session' timerType={sessionTime} handleClick={handleControlClick}/>
-        <TypeWrap labelType='break' timerType={breakTime} handleClick={handleControlClick}/>
+        <TypeWrap 
+          labelType='session' 
+          timerType={storeSession} 
+          handleClick={handleControlClick}/>
+        <TypeWrap 
+          labelType='break' 
+          timerType={storeBreak} 
+          handleClick={handleControlClick}/>
       </div>
     </div>
   );
